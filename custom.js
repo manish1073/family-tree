@@ -67,18 +67,18 @@ document.getElementById('sample').addEventListener('click', function() {
 	data = sampleData.slice();
 	plotTree();
 }); 
-// document.getElementById('download').addEventListener('click', function() {
-//   if (data.length > 1) {
-//     var download = JSON.stringify(data, null, 4);
-//     var payload = "text/json;charset=utf-8," + encodeURIComponent(download);
-//     var a = document.createElement('a');
-//     a.href = 'data:' + payload;
-//     a.download = 'data.json';
-//     a.innerHTML = 'click to download';
-//     var container = document.getElementById('downloadLink');
-//     container.appendChild(a);
-//   }
-// }); 
+document.getElementById('download').addEventListener('click', function() {
+   if (data.length > 1) {
+     var download = JSON.stringify(data, null, 4);
+     var payload = "text/json;charset=utf-8," + encodeURIComponent(download);
+     var a = document.createElement('a');
+     a.href = 'data:' + payload;
+     a.download = 'data.json';
+     a.innerHTML = 'click to download';
+     var container = document.getElementById('downloadLink');
+     container.appendChild(a);
+   }
+}); 
 
 /* Initialize */
 function appInit() {
