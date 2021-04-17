@@ -14,8 +14,9 @@ var sampleData = [
 		{ "id": 13, "name": "Robert", "children": [9], "partners" : [14], level: 2, "parents": [] },
 		{ "id": 14, "name": "Jessie", "children": [9], "partners" : [13], level: 2, "parents": [15,16] },
 		{ "id": 15, "name": "Raymond", "children": [14], "partners" : [16], level: 3, "parents": [] },
-		{ "id": 16, "name": "Betty", "children": [14], "partners" : [15], level: 3, "parents": [] },
+		{ "id": 16, "name": "Betty", "children": [14], "partners" : [15], level: 3, "parents": [] },		
 	], 
+	
 	data = [], elements = [], levels = [], levelMap = [], 
 	tree = document.getElementById('tree'), people = document.getElementById('people'), selectedNode, 
 	startTop, startLeft, gap = 32, size = 64;
@@ -67,17 +68,18 @@ document.getElementById('sample').addEventListener('click', function() {
 	data = sampleData.slice();
 	plotTree();
 }); 
+
 document.getElementById('download').addEventListener('click', function() {
-   if (data.length > 1) {
-     var download = JSON.stringify(data, null, 4);
-     var payload = "text/json;charset=utf-8," + encodeURIComponent(download);
-     var a = document.createElement('a');
-     a.href = 'data:' + payload;
-     a.download = 'data.json';
-     a.innerHTML = 'click to download';
-     var container = document.getElementById('downloadLink');
-     container.appendChild(a);
-   }
+  if (data.length > 1) {
+    var download = JSON.stringify(data, null, 4);
+    var payload = "text/json;charset=utf-8," + encodeURIComponent(download);
+    var a = document.createElement('a');
+    a.href = 'data:' + payload;
+    a.download = 'data.json';
+    a.innerHTML = 'click to download';
+    var container = document.getElementById('downloadLink');
+    container.appendChild(a);
+  }
 }); 
 
 /* Initialize */
